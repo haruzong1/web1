@@ -1,0 +1,757 @@
+
+더 이상 이직을 위한, 이력서 작성은 nono!!
+
+
+<strong>5분만에 완성하는 <u>객관식 이력서</u> </strong>
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-T4Z5R8D');</script>
+<!-- End Google Tag Manager -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-162955613-1"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-162955613-1');
+</script>
+<script data-ad-client="ca-pub-2198509253364789" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<meta charset="UTF-8">
+<title>간편 이력서</title>
+<meta name="google-site-verification" content="kgOpKf1ufLv6YC1QMm9ZQgDAZGvU3MOHE4RC-o2NHTw" />
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<meta name="description" content="나는 어떤 대통령(지도자)과 비슷한 유형일지 지금, 확인해보세요.">
+<meta property="og:title" content="간편이력서" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://app.m-nitpick.com/v1/web/event/11/public" />
+<meta property="og:image" content="https://nitpick-s3.s3.ap-northeast-2.amazonaws.com/web/event/11/preview.png" />
+<meta property="og:description" content="나는 어떤 대통령(지도자)과 비슷한 유형일지 지금, 확인해보세요." />
+<meta name="keywords" content="대통령,지도자,테스트,심리,MBTI,대통령테스트,지도자테스트" />
+<meta name="author" content="불편함" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- Swiper js -->
+<script src="https://unpkg.com/swiper/js/swiper.min.js"></script>
+<!-- kakao link js -->
+<script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+
+<link rel="stylesheet" href="https://nitpick-s3.s3.ap-northeast-2.amazonaws.com/web/event/11/main_new.css">
+<!-- Roulette js-->
+<script src="https://nitpick-s3.s3.ap-northeast-2.amazonaws.com/web/common/js/rouletteScript.js"></script>
+<!-- Link Swiper's CSS -->
+<link rel="stylesheet"
+	href="https://unpkg.com/swiper/css/swiper.min.css">
+<!-- Demo styles -->
+<style>
+.swiper-container {
+	width: 100%;
+	height: 100%;
+}
+
+.swiper-slide {
+	text-align: center;
+	font-size: 18px;
+	background: #fff;
+	/* Center slide text vertically */
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+}
+</style>
+<script>
+	$(document).ready(
+			function() {
+					$("#clipboard-copy-btn").click(function() {
+						copyClipboard();
+					});
+						$("#btn_notice_close").click(function() {
+							$("#contents").hide();
+						});
+
+						//roulette
+						var count = $('div.roulette').children().length
+						$('div.roulette').roulette(option);
+						var currentClickedIndex = -1;
+						var btns = $(".quest-option");
+						$.each(btns, function(index, value) {
+							$(this).click(
+									function() {
+										var btn = $(this);
+										$(this).parent().parent().fadeOut(300,function(){
+											if(index == currentClickedIndex){
+												//console.log("currentClickedIndex : "+ currentClickedIndex + " / "+ index);
+												return;
+											}
+											var qNo = btn.attr('id');
+											var val = btn.attr('value');
+											//console.log("btn_answer text : "+ $(this).text() +" / "+key + ": " + value);
+											//console.log("psyObjs : "+ psyObjs[0]);
+											addOption(qNo,val);
+											//console.log("quest-option clicked : "+ qNo + " / "+ val);
+											if (qNo == 12) {
+												resultTest();
+											}
+											swiper.slideNext();
+											currentClickedIndex = index;
+										})
+
+									})
+						});
+					});
+	var option = {
+			speed : 20,
+			duration : 1,
+			stopImageNumber : 0
+		}
+	var optionArr = Array(4).fill(0);
+	function addOption(no, a) {
+		//onsole.log("addOption addOption : " + no + " / " + a);
+		let index = (no - 1) % 4;
+		optionArr[index] = optionArr[index] + parseInt(a);
+		//console.log("addOption index : " + index+", a :"+a);
+		//console.log("addOption optionArr : " + optionArr);
+	}
+
+	function resultTest() {
+		//console.log("addOption addOption : " + no + " / " + a);
+		var resultStr = "";
+		for(var i = 0 ; i < optionArr.length ; i++){
+			switch(i){
+				case 0:
+					if(optionArr[i] > 4){
+						resultStr += "I";
+					} else {
+						resultStr += "E";
+					}
+					break;
+				case 1:
+					if(optionArr[i] > 4){
+						resultStr += "N";
+					} else {
+						resultStr += "S";
+					}
+					break;
+				case 2:
+					if(optionArr[i] > 4){
+						resultStr += "F";
+					} else {
+						resultStr += "T";
+					}
+					break;
+				case 3:
+					if(optionArr[i] > 4){
+						resultStr += "P";
+					} else {
+						resultStr += "J";
+					}
+					break;
+			}
+		}
+
+		//console.log("addOption index : " + index+", a :"+a);
+		var psyobjs = $(".psyobj");
+		var resultIndex = 1;
+ 		$.each(psyobjs, function(index, obj) {
+			//var id = $(this).attr('id');
+			var val = $(this).attr('value');
+		 	if(resultStr == val){
+				resultIndex = index;
+				//console.log("psyobj matching!! resultStr /val : "+ resultStr + ": " + val);
+			}
+			//console.log("psyobj id /val : "+ index + ": " + val);
+		});
+
+		//let resultIndex = imgs.indexOf(resultStr);
+		//console.log("resultTest : " + resultStr);
+		//console.log("resultTest indexOf: " + resultIndex);
+		option.stopImageNumber = resultIndex;
+		$('div.roulette').roulette('option', option).roulette('start');
+
+		var ssid = $('#ssid').val();
+
+		$.ajax({
+            type: 'POST',
+            url: '/v1/web/event/psy/result/1/'+resultStr,
+            beforeSend: function(request) {
+        	    request.setRequestHeader("SSID", ssid);
+        	  },
+            dataType: 'json',
+            success: function(data){ // response is returned by server
+					if(data.resultCode == 200){
+						//alert(data.resultData.sName);
+						$("#result_rate").text(data.resultData.nRate+"%");
+						$("#result_name").text(data.resultData.sName);
+						$("#result_title").text(data.resultData.sResultTitle);
+						$("#result_msg").text(data.resultData.sResultMsg);
+						$("#result_same_type_name").text(data.resultData.sameTypeObj.sName);
+						$("#result_other_type_name").text(data.resultData.otherTypeObj.sName);
+						var imgPath = $(".fin").attr("data-path");
+						$("#result_same_type_img").attr("src", imgPath+'web/event/11/'+data.resultData.sameTypeObj.sType+".png");
+						$("#result_other_type_img").attr("src", imgPath+'web/event/11/'+data.resultData.otherTypeObj.sType+".png");
+					} else {
+						//alert("보상지급 실패!!\n사유: "+data.resultMsg);
+					}
+            },
+            error: function(response){
+         	   //alert("보상지급 실패!!\n사유: "+response);
+            },
+       });
+	}
+	function stopCallback() {
+		//$('.result_msg_mid').show("slow");
+		//$('.result_msg_bottom').show(1500);
+		 $( ".result_msg_mid" ).slideDown( 1200, function() {
+			    // Animation complete.
+			    $( ".sns-link" ).show();
+
+		 });
+	}
+	function copyClipboard() {
+		  /* Get the text field */
+		  var copyText = document.getElementById("myInput");
+
+		  /* Select the text field */
+		  copyText.select();
+		  copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+
+		  /* Copy the text inside the text field */
+		  document.execCommand("copy");
+
+		  /* Alert the copied text */
+		  alert("공유링크 복사완료 !!");
+		}
+	// SDK를 초기화 합니다. 사용할 앱의 JavaScript 키를 설정해 주세요.
+	Kakao.init('9d284dc8003f36ed54a4b004c351aec8');
+	// SDK 초기화 여부를 판단합니다.
+	//console.log('Kakao isInit::'+Kakao.isInitialized());
+</script>
+</head>
+<body style="display: block; margin: 0px;">
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T4Z5R8D"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+	<!-- Swiper -->
+	<div class="swiper-container con">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide">
+				<!-- 시작화면 -->
+				<div class="con-title">
+					<img src="https://nitpick-s3.s3.ap-northeast-2.amazonaws.com/web/event/11/new_main.png"
+						class="title-main-img">
+					<h2>
+						5분만에 작성하는<br> 간편 이력서 양식
+					</h2>
+					<button class="title-start-btn swiper-next" id="btn_start">
+						<p>테스트 시작!</p>
+					</button>
+					<a href="http://bit.ly/writeic">
+	                <img src="https://nitpick-s3.s3.ap-northeast-2.amazonaws.com/web/event/11/icbox-icon-text-normal.png" class="title-logo">
+		                <p>모비인터치</p>
+		            </a>
+					<div style="height:100px;width:320px;margin:10px auto;">
+					<a href="https://coupa.ng/byixUh" target="_blank"><img src="https://ads-partners.coupang.com/banners/217243?subId=&traceId=V0-301-879dd1202e5c73b2-I217243&w=320&h=100" alt=""></a>
+					</div>
+				</div>
+			</div>
+
+				<div class="swiper-slide">
+					<div class="con-quest">
+						<div class="nav">
+							<h3 class="quest-number">
+								Q1.
+							</h3>
+							<p class="quest-process">
+								1/12
+							</p>
+						</div>
+						<h4 class="quest-title" style="margin:30px 10%">당신은 어떤 마케터인가요?</h4>
+
+						<div class="option">
+
+						<div class="quest-option option1" id="1" value="1">
+								<p>SNS나 가족이나 친구에게
+얘기하며 생각을 공유한다.</p>
+							</div>
+
+						<div class="quest-option option1" id="1" value="2">
+								<p>굳이 주위 사람들에게 털어놓지 않고
+혼자서 생각하는 편이다.</p>
+							</div>
+
+						</div>
+						<img src="https://nitpick-s3.s3.ap-northeast-2.amazonaws.com/web/event/11/q_1.png" style="max-width: 240px; max-height: 240px; display: block; margin-left: auto; margin-right: auto; width: 50%;">
+					</div>
+				</div>
+
+				<div class="swiper-slide">
+					<div class="con-quest">
+						<div class="nav">
+							<h3 class="quest-number">
+								Q2.
+							</h3>
+							<p class="quest-process">
+								2/12
+							</p>
+						</div>
+						<h4 class="quest-title" style="margin:30px 10%">마스크 구매 후 불편한 점을  발견했을 때 당신은 어떤가요?</h4>
+
+						<div class="option">
+
+						<div class="quest-option option1" id="2" value="1">
+								<p>"불편하네.." 하고 넘기는 편이다.</p>
+							</div>
+
+						<div class="quest-option option1" id="2" value="2">
+								<p>불편한 이유와 개선방안 등을
+생각을 하는 편이다.</p>
+							</div>
+
+						</div>
+						<img src="https://nitpick-s3.s3.ap-northeast-2.amazonaws.com/web/event/11/q_2.png" style="max-width: 240px; max-height: 240px; display: block; margin-left: auto; margin-right: auto; width: 50%;">
+					</div>
+				</div>
+
+				<div class="swiper-slide">
+					<div class="con-quest">
+						<div class="nav">
+							<h3 class="quest-number">
+								Q3.
+							</h3>
+							<p class="quest-process">
+								3/12
+							</p>
+						</div>
+						<h4 class="quest-title" style="margin:30px 10%">옷을 쇼핑하는데 불친절한  직원으로 인해 불쾌함을 느낀  당신은 어떻게 행동하나요?</h4>
+
+						<div class="option">
+
+						<div class="quest-option option1" id="3" value="1">
+								<p>불편한 감정이 티가 난다.</p>
+							</div>
+
+						<div class="quest-option option1" id="3" value="2">
+								<p>기분 나쁘지만 따지지는 않고,
+ 같이 쇼핑 중인 친구에게 욕한다.</p>
+							</div>
+
+						</div>
+						<img src="https://nitpick-s3.s3.ap-northeast-2.amazonaws.com/web/event/11/q_3.png" style="max-width: 240px; max-height: 240px; display: block; margin-left: auto; margin-right: auto; width: 50%;">
+					</div>
+				</div>
+
+				<div class="swiper-slide">
+					<div class="con-quest">
+						<div class="nav">
+							<h3 class="quest-number">
+								Q4.
+							</h3>
+							<p class="quest-process">
+								4/12
+							</p>
+						</div>
+						<h4 class="quest-title" style="margin:30px 10%">과제를 할 때 당신은  어떤 스타일 인가요?</h4>
+
+						<div class="option">
+
+						<div class="quest-option option1" id="4" value="1">
+								<p>계획을 잘 세우고 짜여진
+계획대로 한다.</p>
+							</div>
+
+						<div class="quest-option option1" id="4" value="2">
+								<p>최후의 순간까지 미루다가
+시간에 쫓겨 허겁지겁한다.</p>
+							</div>
+
+						</div>
+						<img src="https://nitpick-s3.s3.ap-northeast-2.amazonaws.com/web/event/11/q_4.png" style="max-width: 240px; max-height: 240px; display: block; margin-left: auto; margin-right: auto; width: 50%;">
+					</div>
+				</div>
+
+				<div class="swiper-slide">
+					<div class="con-quest">
+						<div class="nav">
+							<h3 class="quest-number">
+								Q5.
+							</h3>
+							<p class="quest-process">
+								5/12
+							</p>
+						</div>
+						<h4 class="quest-title" style="margin:30px 10%">단체나 친구들 모임에서  당신은 어떤가요?</h4>
+
+						<div class="option">
+
+						<div class="quest-option option1" id="5" value="1">
+								<p>얘기를 많이 하며
+분위기를 주도하는 편이다.</p>
+							</div>
+
+						<div class="quest-option option1" id="5" value="2">
+								<p>얘기를 많이 하지 않고
+때로는 의미 없게 느껴질 때도 있다.</p>
+							</div>
+
+						</div>
+						<img src="https://nitpick-s3.s3.ap-northeast-2.amazonaws.com/web/event/11/q_5.png" style="max-width: 240px; max-height: 240px; display: block; margin-left: auto; margin-right: auto; width: 50%;">
+					</div>
+				</div>
+
+				<div class="swiper-slide">
+					<div class="con-quest">
+						<div class="nav">
+							<h3 class="quest-number">
+								Q6.
+							</h3>
+							<p class="quest-process">
+								6/12
+							</p>
+						</div>
+						<h4 class="quest-title" style="margin:30px 10%">두개의 유형중 당신의 선택은?</h4>
+
+						<div class="option">
+
+						<div class="quest-option option1" id="6" value="1">
+								<p>꾸준하고 참을성 있다는 말을
+ 자주 듣는 편이다. </p>
+							</div>
+
+						<div class="quest-option option1" id="6" value="2">
+								<p>독특하고 창의력, 상상력이
+풍부하다는 말을 듣는 편이다.</p>
+							</div>
+
+						</div>
+						<img src="https://nitpick-s3.s3.ap-northeast-2.amazonaws.com/web/event/11/q_6.png" style="max-width: 240px; max-height: 240px; display: block; margin-left: auto; margin-right: auto; width: 50%;">
+					</div>
+				</div>
+
+				<div class="swiper-slide">
+					<div class="con-quest">
+						<div class="nav">
+							<h3 class="quest-number">
+								Q7.
+							</h3>
+							<p class="quest-process">
+								7/12
+							</p>
+						</div>
+						<h4 class="quest-title" style="margin:30px 10%">친구가 연인한테 차였다고  들은 당신은 어떤 반응을 보일껀가요?</h4>
+
+						<div class="option">
+
+						<div class="quest-option option1" id="7" value="1">
+								<p>친구가 차인 이유와
+상대의 행동에 대해 분석해 준다.</p>
+							</div>
+
+						<div class="quest-option option1" id="7" value="2">
+								<p>친구 눈물을 닦아주며
+밤이 새도록 같이 욕해준다.</p>
+							</div>
+
+						</div>
+						<img src="https://nitpick-s3.s3.ap-northeast-2.amazonaws.com/web/event/11/q_7.png" style="max-width: 240px; max-height: 240px; display: block; margin-left: auto; margin-right: auto; width: 50%;">
+					</div>
+				</div>
+
+				<div class="swiper-slide">
+					<div class="con-quest">
+						<div class="nav">
+							<h3 class="quest-number">
+								Q8.
+							</h3>
+							<p class="quest-process">
+								8/12
+							</p>
+						</div>
+						<h4 class="quest-title" style="margin:30px 10%">주말 아침 등산할 때 당신의  스타일은 무엇인가요?</h4>
+
+						<div class="option">
+
+						<div class="quest-option option1" id="8" value="1">
+								<p>미리 검색해본 루트로 가거나
+산 입구에서 지도를
+체크한 후 출발한다.</p>
+							</div>
+
+						<div class="quest-option option1" id="8" value="2">
+								<p>사람들이 가는 길이 맞는 길.
+굳이 계획 할 필요 없다~! </p>
+							</div>
+
+						</div>
+						<img src="https://nitpick-s3.s3.ap-northeast-2.amazonaws.com/web/event/11/q_8.png" style="max-width: 240px; max-height: 240px; display: block; margin-left: auto; margin-right: auto; width: 50%;">
+					</div>
+				</div>
+
+				<div class="swiper-slide">
+					<div class="con-quest">
+						<div class="nav">
+							<h3 class="quest-number">
+								Q9.
+							</h3>
+							<p class="quest-process">
+								9/12
+							</p>
+						</div>
+						<h4 class="quest-title" style="margin:30px 10%">두개의 유형중 당신의 선택은?</h4>
+
+						<div class="option">
+
+						<div class="quest-option option1" id="9" value="1">
+								<p>시간이 걸리는 일이나 놀이는 싫증을
+빨리 내고 새로운 활동을 원한다.</p>
+							</div>
+
+						<div class="quest-option option1" id="9" value="2">
+								<p>자신의 의견이나 불편한 감정을
+표현하는데 재빠르지 않은 편이다.</p>
+							</div>
+
+						</div>
+						<img src="https://nitpick-s3.s3.ap-northeast-2.amazonaws.com/web/event/11/q_9.png" style="max-width: 240px; max-height: 240px; display: block; margin-left: auto; margin-right: auto; width: 50%;">
+					</div>
+				</div>
+
+				<div class="swiper-slide">
+					<div class="con-quest">
+						<div class="nav">
+							<h3 class="quest-number">
+								Q10.
+							</h3>
+							<p class="quest-process">
+								10/12
+							</p>
+						</div>
+						<h4 class="quest-title" style="margin:30px 10%">두개의 유형중 당신의 선택은?</h4>
+
+						<div class="option">
+
+						<div class="quest-option option1" id="10" value="1">
+								<p>주변 사람들의 얼굴,
+키나 다른 특징들을 잘 기억한다.</p>
+							</div>
+
+						<div class="quest-option option1" id="10" value="2">
+								<p>종종 물건을 잃어버리거나 어디에
+두었는지 기억을 못 할 때가 있다. </p>
+							</div>
+
+						</div>
+						<img src="https://nitpick-s3.s3.ap-northeast-2.amazonaws.com/web/event/11/q_10.png" style="max-width: 240px; max-height: 240px; display: block; margin-left: auto; margin-right: auto; width: 50%;">
+					</div>
+				</div>
+
+				<div class="swiper-slide">
+					<div class="con-quest">
+						<div class="nav">
+							<h3 class="quest-number">
+								Q11.
+							</h3>
+							<p class="quest-process">
+								11/12
+							</p>
+						</div>
+						<h4 class="quest-title" style="margin:30px 10%">친구에게 차려준 요리가  맛이 없는 경우 당신은  어떤경우가 더 좋은가요?</h4>
+
+						<div class="option">
+
+						<div class="quest-option option1" id="11" value="1">
+								<p>다음 요리의 발전을 위해
+어떤 부분이 잘못됐는지
+말해주는 게 좋다.</p>
+							</div>
+
+						<div class="quest-option option1" id="11" value="2">
+								<p>"고마워~ 이거 만드느라
+힘들었을 텐데 고생했어"라는
+반응이 더 좋다.</p>
+							</div>
+
+						</div>
+						<img src="https://nitpick-s3.s3.ap-northeast-2.amazonaws.com/web/event/11/q_11.png" style="max-width: 240px; max-height: 240px; display: block; margin-left: auto; margin-right: auto; width: 50%;">
+					</div>
+				</div>
+
+				<div class="swiper-slide">
+					<div class="con-quest">
+						<div class="nav">
+							<h3 class="quest-number">
+								Q12.
+							</h3>
+							<p class="quest-process">
+								12/12
+							</p>
+						</div>
+						<h4 class="quest-title" style="margin:30px 10%">두개의 유형중 당신의 선택은?</h4>
+
+						<div class="option">
+
+						<div class="quest-option option1" id="12" value="1">
+								<p>예정에 없던 일로 계획을
+바꾸게 되면 힘들어한다.</p>
+							</div>
+
+						<div class="quest-option option1" id="12" value="2">
+								<p>신발이나 옷이 떨어져도
+불편하지 않다.</p>
+							</div>
+
+						</div>
+						<img src="https://nitpick-s3.s3.ap-northeast-2.amazonaws.com/web/event/11/q_12.png" style="max-width: 240px; max-height: 240px; display: block; margin-left: auto; margin-right: auto; width: 50%;">
+					</div>
+				</div>
+
+
+			<div class="swiper-slide">
+				<!-- 결과화면 -->
+				<div class="fin" data-path="https://nitpick-s3.s3.ap-northeast-2.amazonaws.com/">
+					<div class="con-my">
+						<img class="title-logo"
+						src="https://nitpick-s3.s3.ap-northeast-2.amazonaws.com/web/event/11/icbox-icon-text-normal.png">
+						<h1>
+							나와 비슷한<br>대통령(지도자)은... 바로!
+						</h1>
+						<div class="my-img-cover">
+							<div class="roulette my-img" style="display: none;">
+
+									<img src="https://nitpick-s3.s3.ap-northeast-2.amazonaws.com/web/event/11/ENFJ.png" class="psyobj" value="ENFJ" />
+
+									<img src="https://nitpick-s3.s3.ap-northeast-2.amazonaws.com/web/event/11/ENFP.png" class="psyobj" value="ENFP" />
+
+									<img src="https://nitpick-s3.s3.ap-northeast-2.amazonaws.com/web/event/11/ENTJ.png" class="psyobj" value="ENTJ" />
+
+									<img src="https://nitpick-s3.s3.ap-northeast-2.amazonaws.com/web/event/11/ENTP.png" class="psyobj" value="ENTP" />
+
+									<img src="https://nitpick-s3.s3.ap-northeast-2.amazonaws.com/web/event/11/ESFJ.png" class="psyobj" value="ESFJ" />
+
+									<img src="https://nitpick-s3.s3.ap-northeast-2.amazonaws.com/web/event/11/ESFP.png" class="psyobj" value="ESFP" />
+
+									<img src="https://nitpick-s3.s3.ap-northeast-2.amazonaws.com/web/event/11/ESTJ.png" class="psyobj" value="ESTJ" />
+
+									<img src="https://nitpick-s3.s3.ap-northeast-2.amazonaws.com/web/event/11/ESTP.png" class="psyobj" value="ESTP" />
+
+									<img src="https://nitpick-s3.s3.ap-northeast-2.amazonaws.com/web/event/11/INFJ.png" class="psyobj" value="INFJ" />
+
+									<img src="https://nitpick-s3.s3.ap-northeast-2.amazonaws.com/web/event/11/INFP.png" class="psyobj" value="INFP" />
+
+									<img src="https://nitpick-s3.s3.ap-northeast-2.amazonaws.com/web/event/11/INTJ.png" class="psyobj" value="INTJ" />
+
+									<img src="https://nitpick-s3.s3.ap-northeast-2.amazonaws.com/web/event/11/INTP.png" class="psyobj" value="INTP" />
+
+									<img src="https://nitpick-s3.s3.ap-northeast-2.amazonaws.com/web/event/11/ISFJ.png" class="psyobj" value="ISFJ" />
+
+									<img src="https://nitpick-s3.s3.ap-northeast-2.amazonaws.com/web/event/11/ISFP.png" class="psyobj" value="ISFP" />
+
+									<img src="https://nitpick-s3.s3.ap-northeast-2.amazonaws.com/web/event/11/ISTJ.png" class="psyobj" value="ISTJ" />
+
+									<img src="https://nitpick-s3.s3.ap-northeast-2.amazonaws.com/web/event/11/ISTP.png" class="psyobj" value="ISTP" />
+
+							</div>
+						</div>
+					</div>
+					<div class="result_msg_mid" style="display: none;">
+						<div class="con-my">
+							<h2 id="result_name"></h2>
+							<h3>희귀성: <font id="result_rate" style="font-size: 50px;color: #eb1414;vertical-align: middle;">10%</font></h3>
+							<h3 id="result_title"></h3>
+							<p id="result_msg" style="white-space:pre-wrap;margin:30px auto;width: 330px;text-align:left;"></p>
+						</div>
+					<div style="height:160px;width:400px;margin:40px auto;">
+					<script src="https://ads-partners.coupang.com/g.js"></script>
+					<script>
+						new PartnersCoupang.G({ id:214809 });
+					</script>
+					</div>
+						<div class="other" >
+							<div class="other-option option1">
+								<h3>나와 맞는 유형</h3>
+								<img id="result_same_type_img">
+								<p id="result_same_type_name">노태우 대통령</p>
+							</div>
+							<div class="other-option option2">
+								<h3>나와 안맞는 유형</h3>
+								<img id="result_other_type_img">
+								<p id="result_other_type_name">시진핑</p>
+							</div>
+						</div>
+						<div class="app-link" >
+				            <p>
+				            	<b>역대 대통령</b>의 불편을 삽니다.
+				            </p>
+				            <a href="http://bit.ly/writeic">
+				                <button class="icbox-link-btn"><b>'불편함'</b> 앱 다운로드</button>
+				            </a>
+         			        <p class="desc">
+				            	<b>'불편함'</b>은 불편 경험을 판매하는 곳입니다.
+				            </p>
+						</div>
+					</div>
+					<div style="height:180px;width:400px;margin:40px auto;">
+					<p style="font-size:12px;margin-bottom:3px;">광고 죄송합니다.. 서버비용이 너무 무섭습니다😭</p>
+					<script src="https://ads-partners.coupang.com/g.js"></script>
+					<script>
+						new PartnersCoupang.G({ id:217289 });
+					</script>
+					<p style="font-size:12px">광고문의:center@nitpick.co.kr</p>
+					</div>
+					<div class="sns-link" style="display: none;">
+							<p>테스트 링크 공유하기</p>
+				            <img id="kakao-link-btn" src="https://nitpick-s3.s3.ap-northeast-2.amazonaws.com/web/event/11/kakao-logo.png">
+				            <a href="http://www.facebook.com/sharer/sharer.php?u=https://app.m-nitpick.com/v1/web/event/11/public"><img src="https://nitpick-s3.s3.ap-northeast-2.amazonaws.com/web/event/11/facebook.png"></a>
+				            <div class="link">
+				                <input type="text" id="myInput" value="https://app.m-nitpick.com/v1/web/event/11/public"><button id="clipboard-copy-btn">링크 복사</button>
+				            </div>
+				            <input type="hidden" id="ssid" value="">
+				        </div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Initialize Swiper -->
+	<script>
+		var swiper = new Swiper('.swiper-container', {
+			cssMode : false,
+			navigation : {
+				nextEl : '.swiper-next',
+			},
+			//"slide", "fade", "cube", "coverflow" or "flip"
+			effect : 'slide',
+			//터치로 스크롤 안되게
+			allowTouchMove : false,
+			speed : 800,
+			mousewheel : false,
+			keyboard : false,
+		});
+		Kakao.Link.createScrapButton({
+			  container: '#kakao-link-btn',
+			  requestUrl: 'https://app.m-nitpick.com/v1/web/event/11/public'
+			});
+	</script>
+</body>
+</html>
